@@ -17,6 +17,17 @@ class ViewController: UIViewController {
         
         return imageView
     }()
+    
+    private let button: UIButton = {
+        let button = UIButton()
+        
+        button.backgroundColor = .white
+        
+        button.setTitle("Random Photo", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +39,24 @@ class ViewController: UIViewController {
         imageView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
         imageView.center = view.center
         
+        view.addSubview(button)
+        
+        getRandomPhoto()
+        
+        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        button.frame = CGRect(x: 30, y: view.frame.size.height-150-view.safeAreaInsets.bottom, width: view.frame.size.width-60, height: 55)
+        
+    }
+    
+    @objc func didTapButton() {
+        button.setTitle("\(button.currentTitle ?? "") A", for: .normal)
+        
         getRandomPhoto()
     }
+    
     
     func getRandomPhoto() {
         let urlString = "https://source.unsplash.com/random/600x600"
