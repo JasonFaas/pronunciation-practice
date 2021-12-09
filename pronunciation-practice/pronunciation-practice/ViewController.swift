@@ -18,6 +18,14 @@ class ViewController: UIViewController {
         return imageView
     }()
     
+    private let uiTextView: UITextView = {
+        let uiTextView = UITextView()
+        
+        uiTextView.text = "What\nWHOWHOWHOWHOWHOWHOWHOWHOWHOWHOWHOWHOWHOWHO"
+        
+        return uiTextView
+    }()
+    
     private let button: UIButton = {
         let button = UIButton()
         
@@ -36,7 +44,12 @@ class ViewController: UIViewController {
         view.backgroundColor = .systemGray
         
         view.addSubview(imageView)
-        imageView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+        imageView.frame = CGRect(
+            x: 0,
+            y: view.frame.size.height-150-view.safeAreaInsets.bottom,
+            width: 300,
+            height: 300
+        )
         imageView.center = view.center
         
         view.addSubview(button)
@@ -44,11 +57,20 @@ class ViewController: UIViewController {
         getRandomPhoto()
         
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        
+        view.addSubview(uiTextView)
+        
     }
     
     override func viewDidLayoutSubviews() {
-        button.frame = CGRect(x: 30, y: view.frame.size.height-150-view.safeAreaInsets.bottom, width: view.frame.size.width-60, height: 55)
+        button.frame = CGRect(
+            x: 30,
+            y: view.frame.size.height-150-view.safeAreaInsets.bottom,
+            width: view.frame.size.width-60,
+            height: 55
+        )
         
+        uiTextView.frame = CGRect(x: 30, y: view.safeAreaInsets.top, width: 300, height: 100)
     }
     
     @objc func didTapButton() {
