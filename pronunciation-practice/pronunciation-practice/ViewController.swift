@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import Speech
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SFSpeechRecognizerDelegate {
+    
+    var speechProcessing: SpeechProcessing?
+    
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -18,6 +22,10 @@ class ViewController: UIViewController {
         return imageView
     }()
     
+    
+    
+    // TODO: Delete above
+    
     private let uiTextView: UITextView = {
         let uiTextView = UITextView()
         
@@ -26,20 +34,29 @@ class ViewController: UIViewController {
         return uiTextView
     }()
     
-    private let button: UIButton = {
+    private let recordButton: UIButton = {
         let button = UIButton()
-        
         button.backgroundColor = .white
         
-        button.setTitle("Random Photo", for: .normal)
+        button.setTitle("Record", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        
+        button.isEnabled = false
         
         return button
     }()
+    
+    @objc func locButtonClicked(_ sender: Any) {
+        speechProcessing?.locButtonClicked(sender, recordButton, uiTextView)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        speechProcessing = SpeechProcessing()
+//        loadSpeechRecognition()
+        speechProcessing?.isSpeechRecognitionAllowed(recordButton)
         
         view.backgroundColor = .systemGray
         
@@ -52,20 +69,18 @@ class ViewController: UIViewController {
         )
         imageView.center = view.center
         
-        view.addSubview(button)
+        view.addSubview(recordButton)
         
-        getRandomPhoto()
-        
-        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        recordButton.addTarget(self, action: #selector(locButtonClicked), for: .touchUpInside)
         
         view.addSubview(uiTextView)
         
     }
     
     override func viewDidLayoutSubviews() {
-        button.frame = CGRect(
+        recordButton.frame = CGRect(
             x: 30,
-            y: view.frame.size.height-150-view.safeAreaInsets.bottom,
+            y: view.frame.size.height-300-view.safeAreaInsets.bottom,
             width: view.frame.size.width-60,
             height: 55
         )
@@ -73,23 +88,19 @@ class ViewController: UIViewController {
         uiTextView.frame = CGRect(x: 30, y: view.safeAreaInsets.top, width: 300, height: 100)
     }
     
-    @objc func didTapButton() {
-        button.setTitle("\(button.currentTitle ?? "") A", for: .normal)
-        
-        getRandomPhoto()
-    }
+//    @objc func didTapButton() {
+//        button.setTitle("\(button.currentTitle ?? "") AB", for: .normal)
+//
+//        getRandomPhoto()
+//    }
     
     
-    func getRandomPhoto() {
-        let urlString = "https://source.unsplash.com/random/600x600"
-        let url = URL(string: urlString)!
-        guard let data = try? Data(contentsOf: url) else {
-            return
-        }
-        imageView.image = UIImage(data: data)
-        
-    }
 
+    
+    
+    
+        
+        
 
 }
 

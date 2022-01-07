@@ -16,6 +16,7 @@
 		F22F4A7D27618E2500373CCF /* pronunciation_practiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22F4A7C27618E2500373CCF /* pronunciation_practiceTests.swift */; };
 		F22F4A8727618E2500373CCF /* pronunciation_practiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22F4A8627618E2500373CCF /* pronunciation_practiceUITests.swift */; };
 		F22F4A8927618E2500373CCF /* pronunciation_practiceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22F4A8827618E2500373CCF /* pronunciation_practiceUITestsLaunchTests.swift */; };
+		F2DA45AC2787F2CC00139933 /* SpeechProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA45AB2787F2CC00139933 /* SpeechProcessing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		F22F4A8227618E2500373CCF /* pronunciation-practiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pronunciation-practiceUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F22F4A8627618E2500373CCF /* pronunciation_practiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pronunciation_practiceUITests.swift; sourceTree = "<group>"; };
 		F22F4A8827618E2500373CCF /* pronunciation_practiceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pronunciation_practiceUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F2DA45AB2787F2CC00139933 /* SpeechProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechProcessing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				F22F4A6527618E1F00373CCF /* AppDelegate.swift */,
 				F22F4A6727618E1F00373CCF /* SceneDelegate.swift */,
 				F22F4A6927618E1F00373CCF /* ViewController.swift */,
+				F2DA45AB2787F2CC00139933 /* SpeechProcessing.swift */,
 				F22F4A6B27618E1F00373CCF /* Main.storyboard */,
 				F22F4A6E27618E2500373CCF /* Assets.xcassets */,
 				F22F4A7027618E2500373CCF /* LaunchScreen.storyboard */,
@@ -260,6 +263,7 @@
 			files = (
 				F22F4A6A27618E1F00373CCF /* ViewController.swift in Sources */,
 				F22F4A6627618E1F00373CCF /* AppDelegate.swift in Sources */,
+				F2DA45AC2787F2CC00139933 /* SpeechProcessing.swift in Sources */,
 				F22F4A6827618E1F00373CCF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
